@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SaucesList } from './SaucesList';
+import { Header } from './Header'
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -25,6 +26,11 @@ export const App = () => {
 
 	return (
 		<main>	
+      
+      <div>
+        <Header />
+      </div>
+
       <h1>Sauce Store</h1>
 			<h2>All things 🔥</h2>
 			<SaucesList sauces={sauces} />
