@@ -6,7 +6,7 @@ const Sauce = sequelize.define("sauces", {
   image: Sequelize.STRING,
 });
 
-const Item = sequelize.define("sauces", {
+const Item = sequelize.define("items", {
   name: Sequelize.STRING,
   price: Sequelize.INTEGER,
   description: Sequelize.STRING,
