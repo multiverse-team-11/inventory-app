@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   height: 60px;
+  margin-bottom: 90px;
   padding-inline: 30px;
   background-color: rgb(56, 56, 56);
   align-items: center;
@@ -51,7 +52,7 @@
 .card {
   width: 230px;
   padding: 26px;
-  margin: 24px auto;
+  margin: 0 auto 140px;
   border-radius: 8px;
   background-color: white;
   box-shadow: 4px 4px 8px 2px rgba(161, 161, 161, 0.253)
@@ -153,7 +154,25 @@
   font-weight: 600;
 }
 
+.item {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.item-details {
+  width: 50%;
+}
+
+.item-text {
+  margin-bottom: 14px;
+}
+
+.item-img {
+  width: 300px;
+}
+
 .footer {
+  position: fixed;
   display: block;
   align-items: center;
   height: 100px;
@@ -162,4 +181,5 @@
   color: white;
   font-weight: 500;
   background-color: rgb(56, 56, 56);
+  bottom: 0;
 }

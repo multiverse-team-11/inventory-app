@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import apiURL from '../api'
 
-export const Forms = ({ }) => {
+export const Form = ({ setFormIsActive }) => {
   return <>
     <div className="overlay">
       <form className='addForm'>
         <h2>Add Page</h2>
+        <button onClick={() => setFormIsActive(false)}>Close</button>
         <input className='form-field'
           placeholder='Name'
           type='text'

@@ -3,7 +3,7 @@ import React from 'react';
 export const Item = ({ item, fetchItem }) => {
 
   return <>
-    <div class="card">
+    <div className="card">
       <div className="card-img-container">
         <img className='card-img' src={item.image} alt={item.name} />
       </div>

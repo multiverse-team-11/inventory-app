@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './Header'
 import { Footer } from './Footer';
+import { Form } from './Form';
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
-import { ItemsList } from './ItemsList';
 
 
 export const App = () => {
+  const [formIsActive, setFormIsActive] = useState(false)
 
 	const [items, setItems] = useState([]);
-  const [formIsActive, setFormIsActive] = useState(false)
 
 	async function fetchItems(){
 		try {
@@ -27,10 +27,12 @@ export const App = () => {
 	}, []);
 
 	return (
-		<main>	
-      <Header />
+		<main className='container'>	
+      <Header setFormIsActive={setFormIsActive}/>
 
-			<ItemsList items={items} />
+      {formIsActive && 
+          <Form setFormIsActive={setFormIsActive}/>
+      }
 
       <Footer />
 		</main>
