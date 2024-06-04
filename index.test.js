@@ -54,37 +54,3 @@ describe('Sequelize models', () => {
     // });
   }
 );
-
-
-
-
-// test("GET should return an array of restaurants", async () => {
-//     const restaurants = await request(app).get("/restaurants");
-//     expect(Array.isArray(restaurants.body)).toBe(true);
-// });
-
-// test("GET should return the correct number of restaurants", async () => {
-//     const restaurants = await request(app).get("/restaurants");
-//     expect(restaurants.body.length).toBe(3);
-// });
-
-// test("GET should return a list of restaurants", async () => {
-//     const restaurants = await request(app).get("/restaurants");
-//     expect(restaurants.body).toMatchObject([
-//         {
-//           name: 'AppleBees',
-//           location: 'Texas',
-//           cuisine: 'FastFood'
-//         },
-//         {
-//           name: 'LittleSheep',
-//           location: 'Dallas',
-//           cuisine: 'Hotpot'
-//         },
-//         {
-//           name: 'Spice Grill',
-//           location: 'Houston',
-//           cuisine: 'Indian'
-//         }
-//     ]);
-// });
