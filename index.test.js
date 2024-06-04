@@ -42,13 +42,13 @@ describe('Sequelize models', () => {
         });
     });
 
-    // test("GET /:id should return an individual item", async () => {
-    //     const foundItem = await request(app).get("/api/items/1");
-    //     expect(foundItem.body.name).toBe("Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops");
-    //     expect(foundItem.body.price).toBe(109.95);
-    //     expect(foundItem.body.description).toBe("Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday");
-    //     expect(foundItem.body.category).toBe("men's clothing");
-    //     expect(foundItem.body.image).toBe("https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg");
-    // });
+    test("GET /:id should return an individual item", async () => {
+        const foundItem = await request(app).get("/api/items/1");
+        expect(foundItem.body.name).toBe("Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops");
+        expect(foundItem.body.price).toBe(109.95);
+        expect(foundItem.body.description).toBe("Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday");
+        expect(foundItem.body.category).toBe("men's clothing");
+        expect(foundItem.body.image).toBe("https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg");
+    });
 
 });
