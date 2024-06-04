@@ -17,10 +17,31 @@ router.get("/:id", async (req, res, next) => {
   try {
     const itemId = req.params.id; 
     const item = await Item.findByPk(itemId); 
-    res.send(item); 
+    if (item) {
+      res.send(item); 
+    } else {
+      res.status(404).send({ error: "Item Not Found"})
+    }
   }
    catch (error) {
     next(error);
   }
 }); 
+
+// Delete item
+/*
+const express = require('express');
+const app = express();
+const itemRouter = require('./???');
+
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const itemId = req.params.id;
+    await Item.destroy({ where: { id: itemId } });
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+});
+*/
 module.exports = router;
