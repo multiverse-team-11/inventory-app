@@ -27,6 +27,11 @@ describe('Sequelize models', () => {
         const mainPage = await request(app).get("/");
         expect(mainPage.status).toBe(200);
     });
+
+    test("404 handler", async () => {
+        const notFound = await request(app).get("/api/nowhere");
+        expect(notFound.body).toEqual({ error: "404 - Not Found", message: "No route found for the requested URL" });
+    });
   
     test('Item model works', async () => {
         const allItems = await Item.findAll();
@@ -49,6 +54,26 @@ describe('Sequelize models', () => {
         expect(foundItem.body.description).toBe("Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday");
         expect(foundItem.body.category).toBe("men's clothing");
         expect(foundItem.body.image).toBe("https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg");
+    });
+
+    test("POST should add a new item", async () => {
+        const newItem = {
+            name: "New Item",
+            price: 100,
+            description: "New Description",
+            category: "New Category",
+            image: "New Image"
+        };
+
+        const addedItem = await request(app)
+            .post("/api/items")
+            .send(newItem);
+
+        expect(addedItem.body.name).toBe("New Item");
+        expect(addedItem.body.price).toBe(100);
+        expect(addedItem.body.description).toBe("New Description");
+        expect(addedItem.body.category).toBe("New Category");
+        expect(addedItem.body.image).toBe("New Image");
     });
 
 });
