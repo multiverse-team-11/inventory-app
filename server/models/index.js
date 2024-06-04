@@ -6,10 +6,10 @@ const Sauce = sequelize.define("sauces", {
   image: Sequelize.STRING,
 });
 
-const Item = sequelize.define ("items", {
+const Item = sequelize.define("items", {
   name: Sequelize.STRING,
+  price: Sequelize.INTEGER,
   description: Sequelize.STRING,
-  price: Sequelize.DOUBLE,
   category: Sequelize.STRING,
   image: Sequelize.STRING,
 });
@@ -17,4 +17,5 @@ const Item = sequelize.define ("items", {
 module.exports = {
   db: sequelize,
   Sauce,
+  Item,
 };
