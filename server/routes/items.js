@@ -24,6 +24,7 @@ router.get("/:id", async (req, res, next) => {
   }
 }); 
 
+//ADD NEW Item
 router.use(express.json());
 router.use(express.urlencoded({extended: true}))
 
@@ -36,4 +37,26 @@ router.post("/", async (req,res,next) => {
   }
 })
 
+//UPDATE item
+router.put("/:id", async (req,res,next) => {
+  try {
+      const toUpdate = await Item.findByPk(req.params.id);
+       await toUpdate.update(req.body);
+      res.json(toUpdate);
+  } catch(error) {
+      next(error);
+  }
+})
+
+//DELETE item
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const toDelete = await Item.findByPk(req.params.id)
+    await toDelete.destroy();
+    res.json(toDelete);
+  }
+  catch (error) {
+    next (error);
+  }
+})
 module.exports = router;
