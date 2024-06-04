@@ -23,4 +23,17 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 }); 
+
+router.use(express.json());
+router.use(express.urlencoded({extended: true}))
+
+router.post("/", async (req,res,next) => {
+  try {
+    const newItem = await Item.create(req.body);
+    res.send(newItem);
+  } catch (error) {
+    next(error);
+  }
+})
+
 module.exports = router;
