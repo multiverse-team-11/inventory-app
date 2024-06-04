@@ -28,6 +28,19 @@ router.get("/:id", async (req, res, next) => {
   }
 }); 
 
+
+router.use(express.json());
+router.use(express.urlencoded({extended: true}))
+
+router.post("/", async (req,res,next) => {
+  try {
+    const newItem = await Item.create(req.body);
+    res.send(newItem);
+  } catch (error) {
+    next(error);
+  }
+})
+
 // Delete item
 /*
 const express = require('express');
@@ -44,4 +57,5 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 */
+
 module.exports = router;
