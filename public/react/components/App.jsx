@@ -9,6 +9,7 @@ import { ItemsList } from './ItemsList';
 export const App = () => {
 
 	const [items, setItems] = useState([]);
+  const [formIsActive, setFormIsActive] = useState(false)
 
 	async function fetchItems(){
 		try {
