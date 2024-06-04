@@ -12,4 +12,28 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// GET /individual items
+router.get("/:id", async (req, res, next) => {
+  try {
+    const itemId = req.params.id; 
+    const item = await Item.findByPk(itemId); 
+    res.send(item); 
+  }
+   catch (error) {
+    next(error);
+  }
+}); 
+
+router.use(express.json());
+router.use(express.urlencoded({extended: true}))
+
+router.post("/", async (req,res,next) => {
+  try {
+    const newItem = await Item.create(req.body);
+    res.send(newItem);
+  } catch (error) {
+    next(error);
+  }
+})
+
 module.exports = router;

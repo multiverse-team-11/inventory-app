@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Item = ({ item }) => {
+export const Item = ({ item, fetchItem }) => {
 
   return <>
     <div class="card">
@@ -14,7 +14,12 @@ export const Item = ({ item }) => {
       </div>
       <div className='card-buy'>
         <h4 className='card-price'>{item.price}$</h4>
-        <button className='card-button card-button-addtocart'>Add to Cart</button>
+        <button 
+          className='card-button card-button-addtocart'
+          onClick={() => fetchItem(item.id)}
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   </>
