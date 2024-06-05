@@ -12,22 +12,26 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// GET /individual items
+// GET /api/items/:id
 router.get("/:id", async (req, res, next) => {
   try {
     const itemId = req.params.id; 
-    const item = await Item.findByPk(itemId); 
-    res.send(item); 
+    const item = await Item.findByPk(itemId);
+    if (item) {
+      res.send(item);
+    } else {
+      res.status(404).send({ error: "Item not found"});
+    }
   }
    catch (error) {
     next(error);
   }
 }); 
 
-//ADD NEW Item
 router.use(express.json());
 router.use(express.urlencoded({extended: true}))
 
+//ADD NEW Item
 router.post("/", async (req,res,next) => {
   try {
     const newItem = await Item.create(req.body);
