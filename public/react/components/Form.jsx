@@ -6,7 +6,7 @@ export const Form = ({ setFormIsActive, selectedItem, fetchItems }) => {
   const [description, setDescription] = useState(selectedItem?.description || '')
   const [category, setCategory] = useState(selectedItem?.category || '')
   const [price, setPrice] = useState(selectedItem?.price || '')
-  const [imgUrl, setImgUrl] = useState(selectedItem?.imgUrl || '')
+  const [image, setImage] = useState(selectedItem?.image || '')
 
   // ADD/UPDATE the item
   async function onHandleClick (e) {
@@ -16,7 +16,7 @@ export const Form = ({ setFormIsActive, selectedItem, fetchItems }) => {
       description,
       category,
       price,
-      imgUrl
+      image
     }
 
     console.log('Sending item data:', itemData)
@@ -45,7 +45,7 @@ export const Form = ({ setFormIsActive, selectedItem, fetchItems }) => {
       setDescription('')
       setCategory('')
       setPrice('')
-      setImgUrl('')
+      setImage('')
       setFormIsActive(false)
       fetchItems()
 
@@ -86,8 +86,8 @@ export const Form = ({ setFormIsActive, selectedItem, fetchItems }) => {
           type='text'
         ></input>
         <input className='form-field'
-          value={imgUrl}
-          onChange={(e) => setImgUrl(e.target.value)}
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
           placeholder='Img URL'
           type='text'
         ></input>
