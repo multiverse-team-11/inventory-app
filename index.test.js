@@ -92,6 +92,7 @@ describe('Inventory App Item model and router', () => {
             .post("/api/items")
             .send(newItem);
 
+        expect(addedItem.status).toBe(201);
         expect(addedItem.body.name).toBe("New Item");
         expect(addedItem.body.price).toBe(100);
         expect(addedItem.body.description).toBe("New Description");
@@ -333,6 +334,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(214);
         expect(response.body).toMatchObject(updatedItem);
     });
 
@@ -345,6 +348,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -365,6 +370,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -385,6 +392,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -405,6 +414,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -425,6 +436,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -445,6 +458,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -465,6 +480,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -485,6 +502,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -505,6 +524,8 @@ describe('Inventory App Item model and router', () => {
             image: "UpdatedImage"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
+
+        expect(response.status).toBe(400);
         expect(response.body).toMatchObject({ 
             errors: [{ 
                 location: "body",
@@ -518,6 +539,8 @@ describe('Inventory App Item model and router', () => {
 
     test("DELETE should remove an item", async () => {
         const response = await request(app).delete("/api/items/10");
+
+        expect(response.status).toBe(200);
         expect(response.body).toMatchObject({
             name:"SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
             price:109,
