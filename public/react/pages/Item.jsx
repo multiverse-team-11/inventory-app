@@ -50,7 +50,7 @@ export const Item = () => {
             </div>
 
             <div className='item-buy'>
-              <h4 className='item-price'>{item.price}$</h4>
+              <h4 className='item-price'>£{item.price}</h4>
               <button className='item-button item-button-addtocart'>
                 Add to Cart
               </button>
