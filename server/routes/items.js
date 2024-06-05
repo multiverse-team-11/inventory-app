@@ -52,7 +52,7 @@ async (req,res,next) => {
       res.status(400).json({ errors: errors.array() });
     } else {
       const newItem = await Item.create(req.body);
-      res.send(newItem);
+      res.status(201).send(newItem);
     }
   } catch (error) {
     next(error);
@@ -80,7 +80,7 @@ async (req,res,next) => {
     } else {
       const toUpdate = await Item.findByPk(req.params.id);
        await toUpdate.update(req.body);
-      res.json(toUpdate);
+      res.status(214).json(toUpdate);
     }
   } catch(error) {
       next(error);
@@ -92,7 +92,7 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const toDelete = await Item.findByPk(req.params.id)
     await toDelete.destroy();
-    res.json(toDelete);
+    res.status(200).json(toDelete);
   }
   catch (error) {
     next (error);
