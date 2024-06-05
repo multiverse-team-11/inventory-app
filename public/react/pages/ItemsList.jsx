@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { ItemsList } from '../components/ItemsList';
+import { Form } from '../components/Form';
 
 import apiURL from '../api'
 
 export const ItemsList = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([])
+  const [selectedItem, setSelectedItem] = useState(null)
   const [formIsActive, setFormIsActive] = useState(false)
 
 	async function fetchItems(){
@@ -22,9 +24,24 @@ export const ItemsList = () => {
 		fetchItems();
 	}, []);
 
+  // console.log(selectedItem)
+
   return (
     <main className='content'>
-			<ItemsList items={items} />
+			<ItemsList 
+        items={items} 
+        fetchItems={fetchItems} 
+        setSelectedPage={setSelectedItem}
+        setFormIsActive={setFormIsActive}
+      />
+
+      {formIsActive && 
+        <Form 
+          setFormIsActive={setFormIsActive}
+          selectedItem={selectedItem}
+          fetchItems={fetchItems} 
+        />
+      }
     </main>
   )
 }
