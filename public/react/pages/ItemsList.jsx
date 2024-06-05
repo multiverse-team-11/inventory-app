@@ -4,7 +4,7 @@ import { Form } from '../components/Form';
 
 import apiURL from '../api'
 
-export const ItemsList = () => {
+export const ItemsPage = () => {
   const [items, setItems] = useState([])
   const [selectedItem, setSelectedItem] = useState(null)
   const [formIsActive, setFormIsActive] = useState(false)
