@@ -3,7 +3,7 @@ import { Item } from './Item';
 import { useNavigate } from 'react-router-dom';
 import apiURL from '../api';
 
-export const ItemsList = ({ items }) => {
+export const ItemsList = ({ items, fetchItems, setSelectedPage, setFormIsActive}) => {
   const navigate = useNavigate()
   const [currentPage, setCurrentPage] = useState([])
 
@@ -26,6 +26,9 @@ export const ItemsList = ({ items }) => {
           item={item} 
           key={idx} 
           fetchItem={fetchItem} 
+          fetchItems={fetchItems}
+          setFormIsActive={setFormIsActive}
+          setSelectedPage={setSelectedPage}
         />
 			})
 		}

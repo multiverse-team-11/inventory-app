@@ -31,7 +31,7 @@ export const App = () => {
       <Header setFormIsActive={setFormIsActive}/>
 
       {formIsActive && 
-          <Form setFormIsActive={setFormIsActive}/>
+        <Form setFormIsActive={setFormIsActive}/>
       }
 
       <Footer />
