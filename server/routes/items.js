@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Item } = require("../models");
+const { check, validationResult } = require("express-validator");
 
 // GET /items
 router.get("/", async (req, res, next) => {
@@ -32,21 +33,55 @@ router.use(express.json());
 router.use(express.urlencoded({extended: true}))
 
 //ADD NEW Item
-router.post("/", async (req,res,next) => {
+router.post("/", [
+  check("name").notEmpty(options = { ignore_whitespace: true }),
+  check("description").notEmpty(options = { ignore_whitespace: true }),
+  check("category").notEmpty(options = { ignore_whitespace: true }),
+  check("price").isInt(),
+  check("image").custom((value, { req }) => {
+    if (!value.match(/\.(jpg|jpeg|png|gif|svg)$/i)) {
+      throw new Error("Invalid image format");
+    }
+    return true;
+  }),
+],
+async (req,res,next) => {
   try {
-    const newItem = await Item.create(req.body);
-    res.send(newItem);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ errors: errors.array() });
+    } else {
+      const newItem = await Item.create(req.body);
+      res.send(newItem);
+    }
   } catch (error) {
     next(error);
   }
 })
 
 //UPDATE item
-router.put("/:id", async (req,res,next) => {
+router.put("/:id", [
+  check("name").notEmpty(options = { ignore_whitespace: true }),
+  check("description").notEmpty(options = { ignore_whitespace: true }),
+  check("category").notEmpty(options = { ignore_whitespace: true }),
+  check("price").isInt(),
+  check("image").custom((value, { req }) => {
+    if (!value.match(/\.(jpg|jpeg|png|gif|svg)$/i)) {
+      throw new Error("Invalid image format");
+    }
+    return true;
+  }),
+],
+async (req,res,next) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ errors: errors.array() });
+    } else {
       const toUpdate = await Item.findByPk(req.params.id);
        await toUpdate.update(req.body);
       res.json(toUpdate);
+    }
   } catch(error) {
       next(error);
   }

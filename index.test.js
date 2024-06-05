@@ -62,7 +62,7 @@ describe('Sequelize models', () => {
             price: 100,
             description: "New Description",
             category: "New Category",
-            image: "New Image"
+            image: "NewImage.jpg"
         };
 
         const addedItem = await request(app)
@@ -73,7 +73,7 @@ describe('Sequelize models', () => {
         expect(addedItem.body.price).toBe(100);
         expect(addedItem.body.description).toBe("New Description");
         expect(addedItem.body.category).toBe("New Category");
-        expect(addedItem.body.image).toBe("New Image");
+        expect(addedItem.body.image).toBe("NewImage.jpg");
     });
 
     test("PUT should update an item", async () => {
@@ -82,7 +82,7 @@ describe('Sequelize models', () => {
             price: 100,
             description: "Updated Description",
             category: "Updated Category",
-            image: "Updated Image"
+            image: "UpdatedImage.jpg"
         };
         const response = await request(app).put("/api/items/5").send(updatedItem);
         expect(response.body).toMatchObject(updatedItem);
