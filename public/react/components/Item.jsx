@@ -3,17 +3,6 @@ import apiURL from '../api';
 
 export const Item = ({ item, fetchItem, fetchItems, setFormIsActive, setSelectedPage }) => {
   //DELETE Item
-  async function deleteItem (itemId) {
-    try {
-      const res = await fetch(`${apiURL}/items/${itemId}`, {
-        method: 'DELETE'
-      })
-      await res.json()
-      fetchItems()
-    } catch (err) {
-      console.log('Oh no an error! ', err)
-    }
-  }
 
   return <>
     <div className="card">
@@ -22,12 +11,14 @@ export const Item = ({ item, fetchItem, fetchItems, setFormIsActive, setSelected
       </div>
         <h4 className="card-text">{item.name}</h4>
       <div>
+        {/*
         <button 
           className='card-button card-button-delete'
           onClick={() => deleteItem(item.id)}
         >
           Delete
         </button>
+        */}
         <button 
           className='card-button card-button-edit'
           onClick={() => {
@@ -37,6 +28,7 @@ export const Item = ({ item, fetchItem, fetchItems, setFormIsActive, setSelected
         >
           Edit
         </button>
+        
       </div>
       <div className='card-buy'>
         <h4 className='card-price'>£{item.price.toFixed(2)}</h4>

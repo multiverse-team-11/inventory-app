@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, Link } from 'react-router-dom'
-// import { useHistory } from 'react-router-dom'
+import { useLocation, Link, useNavigate } from 'react-router-dom'
+
 
 import apiURL from '../api'
 
-export const Item = () => {
+export const Item = ({ fetchItems }) => {
   const location = useLocation()
+  const navigate = useNavigate()
   const { item } = location.state
-  // const history = useHistory()
 
-  /*
   async function deleteItem (itemId) {
     try {
       const res = await fetch(`${apiURL}/items/${itemId}`, {
@@ -17,12 +16,12 @@ export const Item = () => {
       })
       await res.json()
       fetchItems()
-      // history.push('/')
+      navigate('/')
+
     } catch (err) {
       console.log('Oh no an error! ', err)
     }
   }
-  */
 
   return (
     <>
@@ -39,6 +38,7 @@ export const Item = () => {
             <div className='item-button-del-edt'>
               <button
                 className='item-button item-button-delete'
+                onClick={() => deleteItem(item.id)}
               >
                 Delete
               </button>

@@ -94,7 +94,7 @@
 }
 
 .card-button-edit, .card-button-delete {
-  width: 86px;
+  width: 100%;
   padding-block: 6px;
   color: white;
   background-color: rgb(56, 56, 56);
@@ -186,6 +186,7 @@
 
 .item-img {
   max-width: 260px;
+  max-height: 340px;
 }
 
 .item-go-back {

@@ -2,29 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { ItemsList } from '../components/ItemsList';
 import { Form } from '../components/Form';
 
-import apiURL from '../api'
-
-export const ItemsPage = () => {
-  const [items, setItems] = useState([])
-  const [selectedItem, setSelectedItem] = useState(null)
-  const [formIsActive, setFormIsActive] = useState(false)
-
-	async function fetchItems(){
-		try {
-			const response = await fetch(`${apiURL}/items`);
-			const itemsData = await response.json();
-			
-			setItems(itemsData);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
-		}
-	}
+export const ItemsPage = ({ 
+  items, 
+  fetchItems, 
+  selectedItem, 
+  setSelectedItem,
+  formIsActive,
+  setFormIsActive
+}) => {
 
 	useEffect(() => {
 		fetchItems();
 	}, []);
-
-  // console.log(selectedItem)
 
   return (
     <main className='content'>
