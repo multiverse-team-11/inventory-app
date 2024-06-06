@@ -6,6 +6,7 @@ import apiURL from '../api';
 export const ItemsList = ({ items, fetchItems, setSelectedPage, setFormIsActive}) => {
   const navigate = useNavigate()
   const [currentPage, setCurrentPage] = useState([])
+  const [searchQuery, setSearchQuery] = useState('');
 
   async function fetchItem (itemId) {
     try {
@@ -19,9 +20,27 @@ export const ItemsList = ({ items, fetchItems, setSelectedPage, setFormIsActive}
     }
   }
 
-	return <div className='card-list'>
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+	return <>
+  <div className="search-container">
+    <input
+      className='search-bar'
+      type='text'
+      value={searchQuery}
+      onChange={handleSearchChange}
+      placeholder='Search items...'
+    />
+  </div>
+  <div className='card-list'>
 		{
-			items.map((item, idx) => {
+			filteredItems.map((item, idx) => {
 				return <Item 
           item={item} 
           key={idx} 
@@ -33,4 +52,5 @@ export const ItemsList = ({ items, fetchItems, setSelectedPage, setFormIsActive}
 			})
 		}
 	</div>
+  </>
 } 

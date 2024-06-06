@@ -11,12 +11,13 @@ export const Header = ({ setFormIsActive }) => {
   return <>
     <div className="header">
       <a>Inventory app</a>
-      <div className="header-nav-cart">      
+      <div className="header-nav-cart">
+        {/*      
         <NavLink to='/' className={getLinkClass}>
             Pages
         </NavLink>
         
-          {/*
+          
           <NavLink to='/form' className={getLinkClass}>
             Form
           </NavLink>
