@@ -11,6 +11,7 @@ export const Root = () => {
   const [formIsActive, setFormIsActive] = useState(false)
 
   async function fetchItems(){
+    console.count('root rerendered')
 		try {
 			const response = await fetch(`${apiURL}/items`);
 
@@ -27,7 +28,7 @@ export const Root = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<App />}>
+        <Route path='/' element={<App fetchItems={fetchItems}/>}>
           <Route index element={<ItemsPage 
             items={items} 
             fetchItems={fetchItems} 

@@ -6,32 +6,17 @@ import { Form } from './Form';
 import apiURL from '../api';
 
 
-export const App = () => {
+export const App = ({ fetchItems }) => {
   const [formIsActive, setFormIsActive] = useState(false)
 
-	const [items, setItems] = useState([]);
-
-	async function fetchItems(){
-		try {
-			const response = await fetch(`${apiURL}/items`);
-			const itemsData = await response.json();
-			
-			setItems(itemsData);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
-		}
-	}
-
-	useEffect(() => {
-		fetchItems();
-	}, []);
+	// const [items, setItems] = useState([]);
 
 	return (
 		<main className='container'>	
       <Header setFormIsActive={setFormIsActive}/>
 
       {formIsActive && 
-        <Form setFormIsActive={setFormIsActive}/>
+        <Form setFormIsActive={setFormIsActive} fetchItems={fetchItems}/>
       }
 
       <Footer />
