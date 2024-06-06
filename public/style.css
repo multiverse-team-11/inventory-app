@@ -45,17 +45,24 @@
 }
 
 .card-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 20px; 
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .card {
-  width: 230px;
-  padding: 26px;
-  margin: 0 auto 140px;
+  width: 100%; 
+  padding: 20%;
+  margin: 0 auto;
   border-radius: 8px;
   background-color: white;
-  box-shadow: 4px 4px 8px 2px rgba(161, 161, 161, 0.253)
+  box-shadow: 4px 4px 8px 2px rgba(161, 161, 161, 0.253);
+}
+
+@media (min-width: 1024px) {
+  .card-list {
+    grid-template-columns: repeat(4, 1fr); 
+  }
 }
 
 .card:hover {
