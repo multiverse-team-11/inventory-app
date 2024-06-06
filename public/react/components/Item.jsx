@@ -31,7 +31,7 @@ export const Item = ({ item, fetchItem, fetchItems, setFormIsActive, setSelected
         
       </div>
       <div className='card-buy'>
-        <h4 className='card-price'>£{item.price}</h4>
+        <h4 className='card-price'>£{item.price.toFixed(2)}</h4>
         <button className='card-button card-button-addtocart'>
           Add to Cart
         </button>

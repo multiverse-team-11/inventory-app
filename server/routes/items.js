@@ -37,7 +37,7 @@ router.post("/", [
   check("name").notEmpty(options = { ignore_whitespace: true }),
   check("description").notEmpty(options = { ignore_whitespace: true }),
   check("category").notEmpty(options = { ignore_whitespace: true }),
-  check("price").isInt(),
+  check("price").isCurrency(options = { require_symbol: false, allow_negatives: false, require_decimal: false, digits_after_decimal: [2] }),
   check("image").custom((value, { req }) => {
     if (!value.match(/\.(jpg|jpeg|png|gif|svg)$/i)) {
       throw new Error("Invalid image format");
@@ -64,7 +64,7 @@ router.put("/:id", [
   check("name").notEmpty(options = { ignore_whitespace: true }),
   check("description").notEmpty(options = { ignore_whitespace: true }),
   check("category").notEmpty(options = { ignore_whitespace: true }),
-  check("price").isInt(),
+  check("price").isCurrency(options = { require_symbol: false, allow_negatives: false, require_decimal: false, digits_after_decimal: [2] }),
   check("image").custom((value, { req }) => {
     if (!value.match(/\.(jpg|jpeg|png|gif|svg)$/i)) {
       throw new Error("Invalid image format");

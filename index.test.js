@@ -275,7 +275,7 @@ describe('Inventory App Item model and router', () => {
         });
     });
 
-    test("POST should create error if price input is not integer", async () => {
+    test("POST should create error if price input is not currency with max 2 decimals", async () => {
         const newItem = {
             name: "New Item",
             price: "string",
@@ -300,7 +300,7 @@ describe('Inventory App Item model and router', () => {
         });
     });
 
-    test("POST should create error if image input does not end in .jpg, .jpeg., .png, .svg, .gif", async () => {
+    test("POST should create error if image input does not end in .jpg, .jpeg, .png, .svg, .gif", async () => {
         const newItem = {
             name: "New Item",
             price: 100,
@@ -493,7 +493,7 @@ describe('Inventory App Item model and router', () => {
         });
     });
 
-    test("PUT should create error if price input is not integer", async () => {
+    test("PUT should create error if price input is not currency with max 2 decimals", async () => {
         const updatedItem = {
             name: "Updated Item",
             price: "string",
@@ -515,7 +515,7 @@ describe('Inventory App Item model and router', () => {
         });
     });
 
-    test("PUT should create error if image input does not end in .jpg, .jpeg., .png, .svg, .gif", async () => {
+    test("PUT should create error if image input does not end in .jpg, .jpeg, .png, .svg, .gif", async () => {
         const updatedItem = {
             name: "Updated Item",
             price: 100,

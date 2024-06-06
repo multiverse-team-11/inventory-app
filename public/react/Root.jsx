@@ -1,7 +1,7 @@
 import React, { useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Item } from './pages/Item'
-import { ItemsList } from './pages/ItemsList'
+import { ItemsPage } from './pages/ItemsList'
 import { App } from './components/App'
 import apiURL from './api';
 
@@ -25,7 +25,7 @@ export const Root = () => {
     <Router>
       <Routes>
         <Route path='/' element={<App />}>
-          <Route index element={<ItemsList 
+          <Route index element={<ItemsPage 
             items={items} 
             fetchItems={fetchItems} 
             selectedItem={selectedItem}

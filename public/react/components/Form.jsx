@@ -62,33 +62,38 @@ export const Form = ({ setFormIsActive, selectedItem, fetchItems }) => {
           <button className='form-close' type="button" onClick={() => setFormIsActive(false)}>Close</button>
         </div>
         <input className='form-field'
+          name='name'
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder='Name'
           type='text'
         ></input>
         <textarea className='form-field'
+          name='description'
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder='Description'
           type='text'
         ></textarea>
         <input className='form-field'
+          name='category'
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           placeholder='Category'
           type='text'
         ></input>
         <input className='form-field'
+          name='price'
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder='Price'
           type='text'
         ></input>
         <input className='form-field'
+          name='image'
           value={image}
           onChange={(e) => setImage(e.target.value)}
-          placeholder='Img URL'
+          placeholder='Image URL'
           type='text'
         ></input>
         <button className='button-create' type='submit'>{selectedItem ? 'Update Item' : 'Create Item'}</button>

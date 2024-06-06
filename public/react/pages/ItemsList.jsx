@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ItemsList } from '../components/ItemsList';
 import { Form } from '../components/Form';
 
-export const ItemsList = ({ 
+export const ItemsPage = ({ 
   items, 
   fetchItems, 
   selectedItem, 
