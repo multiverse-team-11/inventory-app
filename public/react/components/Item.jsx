@@ -36,7 +36,7 @@ export const Item = ({ item, fetchItem, fetchItems, setFormIsActive, setSelected
             setSelectedPage(item)
             setFormIsActive(true)
         }}>
-          Edir
+          Edit
         </button>
       </div>
     </div>
