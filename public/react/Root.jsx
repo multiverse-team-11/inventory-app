@@ -13,8 +13,11 @@ export const Root = () => {
   async function fetchItems(){
 		try {
 			const response = await fetch(`${apiURL}/items`);
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch items');
+      }
 			const itemsData = await response.json();
-			
 			setItems(itemsData);
 		} catch (err) {
 			console.log("Oh no an error! ", err)

@@ -23,6 +23,15 @@ export const Item = ({ fetchItems }) => {
     }
   }
 
+  function confirmDelete(id) {
+		// Returns true if the user presses OK, otherwise false
+		const confirmed = window.confirm("Are you sure you want to delete this item?");
+
+		if (confirmed) {
+			deleteItem(id);
+		}
+	}
+
   return (
     <>
       <Link className='item-go-back' to='/'>
@@ -35,6 +44,7 @@ export const Item = ({ fetchItems }) => {
             <h1 className="item-text item-name">{item.name}</h1>
             <h3 className="item-text item-name">{item.category}</h3>
             <p className='item-text item-description'>{item.description}</p>
+            {/*
             <div className='item-button-del-edt'>
               <button
                 className='item-button item-button-delete'
@@ -48,11 +58,14 @@ export const Item = ({ fetchItems }) => {
                 Edit
               </button>
             </div>
-
+            */}
             <div className='item-buy'>
               <h4 className='item-price'>£{item.price.toFixed(2)}</h4>
-              <button className='item-button item-button-addtocart'>
-                Add to Cart
+              <button 
+                className='item-button item-button-addtocart' 
+                onClick={() => confirmDelete(item.id)}
+              >
+                Delete
               </button>
             </div>
           </div>

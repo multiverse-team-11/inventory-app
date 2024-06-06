@@ -18,7 +18,7 @@ export const Item = ({ item, fetchItem, fetchItems, setFormIsActive, setSelected
         >
           Delete
         </button>
-        */}
+        
         <button 
           className='card-button card-button-edit'
           onClick={() => {
@@ -28,12 +28,15 @@ export const Item = ({ item, fetchItem, fetchItems, setFormIsActive, setSelected
         >
           Edit
         </button>
-        
+        */}
       </div>
       <div className='card-buy'>
         <h4 className='card-price'>£{item.price.toFixed(2)}</h4>
-        <button className='card-button card-button-addtocart'>
-          Add to Cart
+        <button className='card-button card-button-addtocart' onClick={() => {
+            setSelectedPage(item)
+            setFormIsActive(true)
+        }}>
+          Edir
         </button>
       </div>
     </div>
