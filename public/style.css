@@ -44,7 +44,7 @@
   background-color: rgb(56, 56, 56);
 }
 
-.card-list {
+/* .card-list {
   display: flex;
   flex-wrap: wrap;
 }
@@ -56,6 +56,27 @@
   border-radius: 8px;
   background-color: white;
   box-shadow: 4px 4px 8px 2px rgba(161, 161, 161, 0.253)
+} */
+
+.card-list {
+  display: grid;
+  gap: 20px; /* Adjust the gap between cards as needed */
+  grid-template-columns: repeat(2, 1fr); /* Default to 1 column */
+}
+
+.card {
+  width: 100%; /* Ensure the card takes full width of its grid column */
+  padding: 20%;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 4px 4px 8px 2px rgba(161, 161, 161, 0.253);
+}
+
+@media (min-width: 1024px) {
+  .card-list {
+    grid-template-columns: repeat(5, 1fr); /* 5 columns on desktops */
+  }
 }
 
 .card:hover {
