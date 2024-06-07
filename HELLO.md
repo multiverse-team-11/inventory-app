@@ -6,7 +6,7 @@ This is our project for our apprenticeship course. It is an inventory app in whi
 Github repo: `https://github.com/orgs/multiverse-team-11/projects/1`
 Wireframe: `https://www.figma.com/design/ZoCurG4xhdP2C3JVDy54O4/Team-11-E-commerce-wireframe?node-id=1-500&t=cSzPpyK1KWeZBsiL-0`
 AM2 Readiness: `https://my.multiverse.io/join-course/SEYMYR`
-App URL: `To upload`
+App URL: `https://inventory-app-11-1emn.onrender.com`
 Video link: `To upload`
 ## Images
 ![wireframe](./images/wireframe.png)
